@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: k8-service-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8-service-rs-pod
+  template:
+    metadata:
+      labels:
+        app: k8-service-rs-pod
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
